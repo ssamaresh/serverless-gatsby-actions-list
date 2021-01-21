@@ -1,0 +1,12 @@
+{
+  "name": "actions-list",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:ssamaresh/serverless-gatsby-actions-list.git",
+  "author": "Samaresh Sridhar <ssamaresh1990@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+   "packages/*" 
+  ]
+}
