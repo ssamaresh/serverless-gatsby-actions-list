@@ -1,39 +1,29 @@
-import React, {useEffect} from 'react';
-import { Container, Heading, Button, Flex } from 'theme-ui'
-import netlifyIdentity from 'netlify-identity-widget';
+import React, { useContext } from 'react'
+import { Container, Heading, Flex } from 'theme-ui'
+// import { Link } from 'gatsby'
+import { IdentityContext } from '../../identity-context'
+import Nav from '../components/nav';
 
-const App =  props => {
+const App = () => {
+  const { user, identity: netlifyIdentity } = useContext(IdentityContext)
 
-  useEffect(() => {
-    netlifyIdentity.init({});
-  });
-
-  const handleLogin = () => {
-    netlifyIdentity.open();
-  };
+  console.log('USER', user, netlifyIdentity)
 
   return (
     <Container>
-      <Flex sx={{
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: 3
-      }}
-    >
-      <Heading as='h1'>Get Ready! Take Action.</Heading>
-      <Button
+      <Nav />
+      <Flex
         sx={{
-          mx: 'auto',
-          my: 3
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: 3,
         }}
-        onClick={handleLogin}
       >
-        Log In
-      </Button>
-    </Flex>
-  </Container>
+        <Heading as="h1">Get Ready! Take Action.</Heading>
+      </Flex>
+    </Container>
   )
-};
+}
 
-export default App;
+export default App
